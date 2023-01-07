@@ -1,1 +1,1292 @@
-[]
+[
+    {
+        "id": "6d2f931c87bbb1a0",
+        "type": "tab",
+        "label": "Daikin Cloud - Domoticz",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "42bc4e80deb9162e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "Velux/driver",
+        "birthQos": "0",
+        "birthRetain": "true",
+        "birthPayload": "online",
+        "birthMsg": {},
+        "closeTopic": "Velux/driver",
+        "closeQos": "0",
+        "closeRetain": "true",
+        "closePayload": "offline",
+        "closeMsg": {},
+        "willTopic": "Velux/driver",
+        "willQos": "0",
+        "willRetain": "true",
+        "willPayload": "offline",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "80f27d37af33d82b",
+        "type": "ui_tab",
+        "name": "Daikin Cloud",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a06bad650164a668",
+        "type": "ui_group",
+        "name": "MQTT AutoDiscovery Settings",
+        "tab": "80f27d37af33d82b",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "43745523810d126b",
+        "type": "ui_group",
+        "name": "General Settings",
+        "tab": "80f27d37af33d82b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4ac3a063533020a9",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "98b78a8ee3ac4fc5",
+        "type": "inject",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "15",
+        "topic": "get",
+        "x": 90,
+        "y": 360,
+        "wires": [
+            [
+                "3d3e606e9cf7e139"
+            ]
+        ]
+    },
+    {
+        "id": "fb0819061dac9a48",
+        "type": "mqtt out",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "42bc4e80deb9162e",
+        "x": 1370,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cabf72fa9eda13de",
+        "type": "inject",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "712b9779176aa8f5"
+            ]
+        ]
+    },
+    {
+        "id": "06aec73cb0b676ab",
+        "type": "file",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1600,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b0aff63096645ac2",
+        "type": "file in",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 60,
+        "wires": [
+            [
+                "0dc3eb2935ae9b37"
+            ]
+        ]
+    },
+    {
+        "id": "ce325a7cdf5cfd18",
+        "type": "json",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 870,
+        "y": 60,
+        "wires": [
+            [
+                "3b3d7c5990d060cf",
+                "ceeefc01731f3e0b"
+            ]
+        ]
+    },
+    {
+        "id": "e921f6e124e10999",
+        "type": "comment",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Step 2: Set up dashboard (CTRL+SHIFT+D)",
+        "info": "Fill in all required information in the dashboard.\nBut do not enable start flow yet!\n\nThe dashboard can be opened using CTRL+SHIFT+D or by going to 127.0.0.1:1880/ui/\n\nIf no password is needed for domoticz or your mqtt broker, just leave username and password empty. If everything is filled in, click save.\n\nSelect all devices types you want to create. Don't forget to click save too, as this is a separate dashboard.\n\nOpen the \"Daikin Cloud\" node and enter your username and password you use for the app. This node does not support logins using facebook, so you need to create an account using an e-mailaddress.",
+        "x": 410,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "26ce01afe0babef8",
+        "type": "file in",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "1e672b1d07b5f29b"
+            ]
+        ]
+    },
+    {
+        "id": "f9b3232c48ec7188",
+        "type": "file",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1600,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "79fdd12f2d8a54a1",
+        "type": "json",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 870,
+        "y": 140,
+        "wires": [
+            [
+                "b59cf1777bd867f4",
+                "ceeefc01731f3e0b"
+            ]
+        ]
+    },
+    {
+        "id": "2f516322be8758a5",
+        "type": "mqtt in",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "42bc4e80deb9162e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 770,
+        "y": 300,
+        "wires": [
+            [
+                "ed7e3ed0d0411953"
+            ]
+        ]
+    },
+    {
+        "id": "58eb59d2a125eb49",
+        "type": "change",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1220,
+        "y": 180,
+        "wires": [
+            [
+                "b59cf1777bd867f4",
+                "4023355498191793"
+            ]
+        ]
+    },
+    {
+        "id": "c0bbb74d7e77274d",
+        "type": "change",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1220,
+        "y": 100,
+        "wires": [
+            [
+                "3b3d7c5990d060cf",
+                "4023355498191793"
+            ]
+        ]
+    },
+    {
+        "id": "e0eda8a3d289d030",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set MQTT Connection",
+        "func": "if ((flow.get(\"MQTTBrokerUsername\") == undefined) || (flow.get(\"MQTTBrokerPassword\") == undefined))\n    {\n    msg.broker = JSON.parse('{\"broker\": \"' + flow.get(\"MQTTBrokerIP\") + '\", \"port\": ' + flow.get(\"MQTTBrokerPort\") + ', \"force\": true }');\n    msg.action = \"connect\";\n    node.send(msg)  \n    }\nelse\n    {\n    msg.broker = JSON.parse('{\"broker\": \"' + flow.get(\"MQTTBrokerIP\") + '\", \"port\": ' + flow.get(\"MQTTBrokerPort\") + ', \"username\" : \"' + flow.get(\"MQTTBrokerUsername\") + '\", \"password\" : \"' + flow.get(\"MQTTBrokerPassword\") + '\", \"force\": true }');\n    msg.action = \"connect\";\n    node.send(msg)    \n    }\n\nmsg.action = \"subscribe\";\nmsg.topic = flow.get(\"StateSetPrefix\")+\"/#\";\nnode.send(msg)\n      \nreturn null;\n    \n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 300,
+        "wires": [
+            [
+                "2f516322be8758a5"
+            ]
+        ]
+    },
+    {
+        "id": "ceeefc01731f3e0b",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "func": "msg.payload.keys = Object.keys(msg.payload)\nmsg.payload.values = Object.values(msg.payload)\n\nfor (let i = 0; i < msg.payload.keys.length; i++)\n{\n    flow.set(msg.payload.keys[i], msg.payload.values[i])\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4023355498191793",
+        "type": "link out",
+        "z": "6d2f931c87bbb1a0",
+        "name": "LoadFileIn",
+        "mode": "link",
+        "links": [
+            "2a5f716aa67a0892"
+        ],
+        "x": 1415,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2a5f716aa67a0892",
+        "type": "link in",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "links": [
+            "4023355498191793"
+        ],
+        "x": 255,
+        "y": 100,
+        "wires": [
+            [
+                "8212dfe1a2221478"
+            ]
+        ]
+    },
+    {
+        "id": "ed7e3ed0d0411953",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set Devices",
+        "func": "var mqttmsg = {}\nvar daikinmsg = {}\ndaikinmsg.payload = {}\n\n\n//Set State variables\nif ((msg.topic.includes(\"daikin\")) && (msg.topic.includes(\"state\")))\n{\n    flow.set(msg.topic, msg.payload)\n}\n\n\nfor (let i = 0; i < flow.get(\"UnitCount\"); i++)\n\n{\n    var ssid = flow.get(\"SSIDUnit\"+i)\n    var unitname = flow.get(\"NameUnit\"+i)\n    \n    //POWER \n    if (msg.topic.includes(\"/switch/power/\"+unitname+\"/set\"))\n        {\n            mqttmsg.topic = \"daikin/switch/power/\" + unitname + \"/state\"\n            \n            daikinmsg.topic = \"set\"\n            daikinmsg.payload.managementPoint = \"climateControl\"\n            daikinmsg.payload.dataPoint = \"onOffMode\"   \n            daikinmsg.payload.ssid = ssid\n            \n            if (msg.payload == \"ON\") \n            {\n                mqttmsg.payload = \"ON\"\n                daikinmsg.payload.value = \"on\"\n                \n            }\n            else if (msg.payload == \"OFF\") \n            {\n                mqttmsg.payload = \"OFF\"\n                daikinmsg.payload.value = \"off\"\n            }\n            node.send([[mqttmsg],[null]])\n            node.send([[null],[daikinmsg]])\n            flow.set(\"SkipRead\", 3)\n        }\n    \n    //SETPOINT\n    else if (msg.topic.includes(\"/climate/setpoint/\"+unitname+\"/targetTempCmd\"))\n        {\n            mqttmsg.topic = \"daikin/climate/setpoint/\" + unitname + \"/state\"\n            mqttmsg.payload = msg.payload\n                        \n            daikinmsg.topic = \"set\"\n            daikinmsg.payload.managementPoint = \"climateControl\"\n            daikinmsg.payload.dataPoint = \"temperatureControl\"    \n            daikinmsg.payload.ssid = ssid\n            //daikinmsg.payload.value = Number(Number(msg.payload.svalue1).toFixed(1))\n            //daikinmsg.payload.value = Number(msg.payload).toFixed(1)\n            //daikinmsg.payload.value = Number(msg.payload)\n            daikinmsg.payload.value = Math.round(Number(msg.payload) / 0.5) * 0.5\n\n            \n            if (flow.get(\"CurrentModeUnit\"+i) == \"cooling\")\n                    {daikinmsg.payload.dataPointPath = '[\"/operationModes/cooling/setpoints/roomTemperature\"]'}\n            if (flow.get(\"CurrentModeUnit\"+i) == \"heating\")\n                    {daikinmsg.payload.dataPointPath = '[\"/operationModes/heating/setpoints/roomTemperature\"]'}\n            if (flow.get(\"CurrentModeUnit\"+i) == \"auto\")    \n                    {daikinmsg.payload.dataPointPath = '[\"/operationModes/auto/setpoints/roomTemperature\"]'}\n            \n            node.send([[mqttmsg],[null]])\n            node.send([[null],[daikinmsg]])\n            flow.set(\"SkipRead\", 3)\n        }\n    \n    //MODE\n    else if (msg.topic.includes(\"/select/mode/\"+unitname+\"/set\"))\n        {\n            if (msg.payload == \"off\") \n            {\n                node.warn(\"Mode cannot be off, please hide off level in domoticz\")\n            }\n            else\n            {\n                mqttmsg.topic = \"daikin/select/mode/\" + unitname + \"/state\"\n                mqttmsg.payload = msg.payload\n                \n                daikinmsg.topic = \"set\"\n                daikinmsg.payload.managementPoint = \"climateControl\"\n                daikinmsg.payload.dataPoint = \"operationMode\"    \n                daikinmsg.payload.ssid = ssid\n                daikinmsg.payload.value = msg.payload\n                flow.set(\"CurrentModeUnit\"+i, msg.payload)\n                node.send([[mqttmsg],[null]])\n                node.send([[null],[daikinmsg]])\n                flow.set(\"SkipRead\", 3)\n            }\n        }\n    \n    //FANDIRECTION\n    else if (msg.topic.includes(\"/select/fandirection/\"+unitname+\"/set\"))\n        {\n            mqttmsg.topic = \"daikin/select/fandirection/\" + unitname + \"/state\"\n            mqttmsg.payload = msg.payload\n            \n            daikinmsg.topic = \"set\"\n            daikinmsg.payload.managementPoint = \"climateControl\"\n            daikinmsg.payload.dataPoint = \"fanControl\"    \n            daikinmsg.payload.ssid = ssid\n\n            let horizontal = \"\"\n            let vertical = \"\"\n            \n                    if (msg.payload == \"Off\")\n                        {\n                        horizontal = \"stop\"\n                        vertical = \"stop\"\n                        }\n                    \n                    if (msg.payload == \"Horizontal\")\n                        {\n                        horizontal = \"swing\"\n                        vertical = \"stop\"\n                        }\n                        \n                        if (msg.payload == \"Vertical\")\n                        {\n                        horizontal = \"stop\"\n                        vertical = \"swing\"\n                        }\n                        \n                        if (msg.payload == \"3D-Swing\")\n                        {\n                        horizontal = \"swing\"\n                        vertical = \"swing\"\n                        }\n            daikinmsg.payload.dataPointPath = '/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanDirection/horizontal/currentMode'\n            daikinmsg.payload.value = horizontal\n            node.send([[null],[daikinmsg]]);\n            daikinmsg.payload.dataPointPath = '/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanDirection/vertical/currentMode'\n            daikinmsg.payload.value = vertical\n            node.send([[null],[daikinmsg]]);            \n            node.send([[mqttmsg],[null]])\n            flow.set(\"SkipRead\", 3)\n        }\n    \n    //FANSPEED\n    else if (msg.topic.includes(\"/select/fanspeed/\"+unitname+\"/set\"))\n        {\n            mqttmsg.topic = \"daikin/select/fanspeed/\" + unitname + \"/state\"\n            mqttmsg.payload = msg.payload\n            \n            daikinmsg.topic = \"set\"\n            daikinmsg.payload.managementPoint = \"climateControl\"\n            daikinmsg.payload.dataPoint = \"fanControl\"    \n            daikinmsg.payload.ssid = ssid\n            \n                if ((msg.payload.includes(\"Level\")) && (flow.get(\"CurrentModeUnit\"+i) != \"dry\"))\n                {\n                daikinmsg.payload.dataPointPath = '/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanSpeed/currentMode'\n                daikinmsg.payload.value = \"fixed\"\n                node.send([[null],[daikinmsg]]);  \n                \n                daikinmsg.payload.dataPointPath = '/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanSpeed/modes/fixed'\n                daikinmsg.payload.value = Number(msg.payload.slice(-1))\n                node.send([[null],[daikinmsg]]);\n                }\n                \n                if ((msg.payload == (\"Auto\")) && (flow.get(\"CurrentModeUnit\"+i) != \"dry\"))\n                {\n                daikinmsg.payload.dataPointPath = '/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanSpeed/currentMode'\n                daikinmsg.payload.value = \"auto\"\n                node.send([[null],[daikinmsg]]);\n                }\n                \n                if ((msg.payload == (\"Quiet\")) && (flow.get(\"CurrentModeUnit\"+i) != \"dry\"))\n                {\n                daikinmsg.payload.dataPointPath = '/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanSpeed/currentMode'\n                daikinmsg.payload.value = \"quiet\"\n                node.send([[null],[daikinmsg]]);\n                }\n                \n                if (msg.payload == (\"Off\"))\n                {\n                node.warn(\"Fan Speed cannot be off, please hide off level in domoticz\")\n                }\n            \n            node.send([[mqttmsg],[null]])\n            flow.set(\"SkipRead\", 3)\n        }\n    \n    //POWERFUL\n    else if (msg.topic.includes(\"/switch/powerful/\"+unitname+\"/set\"))\n        {\n            mqttmsg.topic = \"daikin/switch/powerful/\" + unitname + \"/state\"\n\n            \n                daikinmsg.topic = \"set\"\n                daikinmsg.payload.managementPoint = \"climateControl\"\n                daikinmsg.payload.dataPoint = \"powerfulMode\"   \n                daikinmsg.payload.ssid = ssid\n                \n                if (msg.payload == \"ON\") \n                {\n                    mqttmsg.payload = \"ON\"\n                    daikinmsg.payload.value = \"on\"\n                    \n                }\n                else if (msg.payload == \"OFF\") \n                {\n                    mqttmsg.payload = \"OFF\"\n                    daikinmsg.payload.value = \"off\"\n                }\n                node.send([[mqttmsg],[null]])\n                node.send([[null],[daikinmsg]])\n                flow.set(\"SkipRead\", 3)\n        }\n    \n    //ECONO\n    else if (msg.topic.includes(\"/switch/econo/\"+unitname+\"/set\"))\n        {\n            mqttmsg.topic = \"daikin/switch/econo/\" + unitname + \"/state\"\n\n            \n                daikinmsg.topic = \"set\"\n                daikinmsg.payload.managementPoint = \"climateControl\"\n                daikinmsg.payload.dataPoint = \"econoMode\"   \n                daikinmsg.payload.ssid = ssid\n                \n                if (msg.payload == \"ON\") \n                {\n                    mqttmsg.payload = \"ON\"\n                    daikinmsg.payload.value = \"on\"\n                    \n                }\n                else if (msg.payload == \"OFF\") \n                {\n                    mqttmsg.payload = \"OFF\"\n                    daikinmsg.payload.value = \"off\"\n                }\n                node.send([[mqttmsg],[null]])\n                node.send([[null],[daikinmsg]])\n                flow.set(\"SkipRead\", 3)\n        }\n        \n    //LED \n    if (msg.topic.includes(\"/switch/led/\"+unitname+\"/set\"))\n        {\n            mqttmsg.topic = \"daikin/switch/led/\" + unitname + \"/state\"\n            \n            daikinmsg.topic = \"set\"\n            daikinmsg.payload.managementPoint = \"gateway\"\n            daikinmsg.payload.dataPoint = \"ledEnabled\"   \n            daikinmsg.payload.ssid = ssid\n            \n            if (msg.payload == \"ON\") \n            {\n                mqttmsg.payload = \"ON\"\n                daikinmsg.payload.value = true\n                \n            }\n            else if (msg.payload == \"OFF\") \n            {\n                mqttmsg.payload = \"OFF\"\n                daikinmsg.payload.value = false\n            }\n            node.send([[mqttmsg],[null]])\n            node.send([[null],[daikinmsg]])\n            flow.set(\"SkipRead\", 3)\n        }\n    \n}\n\nreturn null",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 300,
+        "wires": [
+            [
+                "fb0819061dac9a48"
+            ],
+            [
+                "04be43bdb7384602"
+            ]
+        ],
+        "outputLabels": [
+            "To MQTT",
+            "To Daikin Cloud"
+        ]
+    },
+    {
+        "id": "d3bb7b1fd84408e6",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Read Devices",
+        "func": "//Save all state messages first\nconst currentminutes = new Date().getMinutes();\n\n    for (var i = 0; i < msg.payload.length; i++)\n        {\n        \n        var StateMessage = {};\n        var unitname = flow.get(\"NameUnit\"+i)\n        \n        if ((flow.get(\"SkipRead\") == 0) || (flow.get(\"SkipRead\") == undefined))\n        {\n            //POWER\n            if (msg.payload[i].managementPoints.climateControl.onOffMode.value == \"off\") \n            {\n                StateMessage.payload = \"OFF\"\n                if (flow.get(\"daikin/switch/power/\"+unitname+\"/state\") != \"OFF\")\n                    {\n                        StateMessage.topic = \"daikin/switch/power/\" + unitname + \"/state\"\n                        StateMessage.payload = \"OFF\"\n                        node.send(StateMessage);\n                    }                \n            } \n            else \n                {\n                    StateMessage.payload = \"ON\"\n                    if (flow.get(\"daikin/switch/power/\"+unitname+\"/state\") != \"ON\")\n                        {\n                            StateMessage.topic = \"daikin/switch/power/\" + unitname + \"/state\"\n                            StateMessage.payload = \"ON\"\n                            node.send(StateMessage);\n                        }\n                }\n            \n            \n            //SETPOINT    \n            let setpoint      \n            if ((flow.get(\"CurrentModeUnit\"+i) != \"dry\") && (flow.get(\"CurrentModeUnit\"+i) != \"fanOnly\"))\n            {\n                setpoint = eval('msg.payload[i].managementPoints.climateControl.temperatureControl[\"/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/setpoints/roomTemperature\"].value')\n            }\n            else\n            {\n                setpoint = msg.payload[i].managementPoints.climateControl.temperatureControl[\"/operationModes/cooling/setpoints/roomTemperature\"].value\n            }\n\n            if ((flow.get(\"daikin/climate/setpoint/\"+unitname+\"/state\") != setpoint.toFixed(2)) || (currentminutes == 30)) //|| ((currentminutes % 5 === 0)))\n            {\n                        StateMessage.topic = \"daikin/climate/setpoint/\" + unitname + \"/state\"\n                        StateMessage.payload = setpoint.toFixed(2)\n                        node.send(StateMessage);\n            }\n            \n            //MODE\n            if (flow.get(\"daikin/select/mode/\"+unitname+\"/state\") != msg.payload[i].managementPoints.climateControl.operationMode.value)\n            {\n                        StateMessage.topic = \"daikin/select/mode/\" + unitname + \"/state\"\n                        StateMessage.payload =msg.payload[i].managementPoints.climateControl.operationMode.value\n                        flow.set(\"CurrentModeUnit\"+i, msg.payload[i].managementPoints.climateControl.operationMode.value)\n                        node.send(StateMessage);\n            }\n            \n            //FANDIRECTION\n            //Streepje in 3D-Swing nakijken domoticz\n            let horizontal = \"\"\n            let vertical = \"\"\n            let fandirection = \"\"\n            horizontal = eval('msg.payload[i].managementPoints.climateControl.fanControl[\"/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanDirection/horizontal/currentMode\"].value')\n            vertical = eval('msg.payload[i].managementPoints.climateControl.fanControl[\"/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanDirection/vertical/currentMode\"].value')\n            \n            if ((horizontal == \"stop\") && (vertical == \"stop\")) {fandirection = \"Off\"}\n            else if ((horizontal == \"swing\") && (vertical == \"stop\")) {fandirection = \"Horizontal\"}\n            else if ((horizontal == \"stop\") && (vertical == \"swing\")) {fandirection = \"Vertical\"}\n            else if ((horizontal == \"swing\") && (vertical == \"swing\")) {fandirection = \"3D-Swing\"}\n            \n            if (flow.get(\"daikin/select/fandirection/\"+unitname+\"/state\") != fandirection)\n            {\n                        StateMessage.topic = \"daikin/select/fandirection/\" + unitname + \"/state\"\n                        StateMessage.payload = fandirection\n                        node.send(StateMessage);\n            }\n    \n            //FANSPEED\n            //MAG NIET OFF ZIJN\n            let FanSpeedMode = eval('msg.payload[i].managementPoints.climateControl.fanControl[\"/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanSpeed/currentMode\"].value')\n            let FanSpeedFixed = eval('msg.payload[i].managementPoints.climateControl.fanControl[\"/operationModes/' + flow.get(\"CurrentModeUnit\"+i) + '/fanSpeed/modes/fixed\"].value')\n            let fanspeed = \"\"\n\n            if (FanSpeedMode == \"fixed\") {fanspeed = \"Level \" + FanSpeedFixed}\n            else if (FanSpeedMode == \"auto\") {fanspeed = \"Auto\"}\n            else if (FanSpeedMode == \"quiet\") {fanspeed = \"Quiet\"}   \n            \n            if (flow.get(\"daikin/select/fanspeed/\"+unitname+\"/state\") != fanspeed)\n            {\n                        StateMessage.topic = \"daikin/select/fanspeed/\" + unitname + \"/state\"\n                        StateMessage.payload = fanspeed\n                        node.send(StateMessage);\n            }\n            \n            //POWERFUL\n            if (msg.payload[i].managementPoints.climateControl.powerfulMode.value == \"off\") \n            {\n                StateMessage.payload = \"OFF\"\n                if (flow.get(\"daikin/switch/powerful/\"+unitname+\"/state\") != \"OFF\")\n                    {\n                        StateMessage.topic = \"daikin/switch/powerful/\" + unitname + \"/state\"\n                        StateMessage.payload = \"OFF\"\n                        node.send(StateMessage);\n                    }                \n            } \n            else \n                {\n                    StateMessage.payload = \"ON\"\n                    if (flow.get(\"daikin/switch/powerful/\"+unitname+\"/state\") != \"ON\")\n                        {\n                            StateMessage.topic = \"daikin/switch/powerful/\" + unitname + \"/state\"\n                            StateMessage.payload = \"ON\"\n                            node.send(StateMessage);\n                        }\n                }\n                \n            //ECONO\n            if (msg.payload[i].managementPoints.climateControl.econoMode.value == \"off\") \n            {\n                StateMessage.payload = \"OFF\"\n                if (flow.get(\"daikin/switch/econo/\"+unitname+\"/state\") != \"OFF\")\n                    {\n                        StateMessage.topic = \"daikin/switch/econo/\" + unitname + \"/state\"\n                        StateMessage.payload = \"OFF\"\n                        node.send(StateMessage);\n                    }                \n            } \n            else \n                {\n                    StateMessage.payload = \"ON\"\n                    if (flow.get(\"daikin/switch/econo/\"+unitname+\"/state\") != \"ON\")\n                        {\n                            StateMessage.topic = \"daikin/switch/econo/\" + unitname + \"/state\"\n                            StateMessage.payload = \"ON\"\n                            node.send(StateMessage);\n                        }\n                }\n                \n      \n                    \n            //LED\n            if (msg.payload[i].managementPoints.gateway.ledEnabled.value == false) \n            {\n                StateMessage.payload = \"OFF\"\n                if (flow.get(\"daikin/switch/led/\"+unitname+\"/state\") != \"OFF\")\n                    {\n                        StateMessage.topic = \"daikin/switch/led/\" + unitname + \"/state\"\n                        StateMessage.payload = \"OFF\"\n                        node.send(StateMessage);\n                    }                \n            } \n            else \n                {\n                    StateMessage.payload = \"ON\"\n                    if (flow.get(\"daikin/switch/led/\"+unitname+\"/state\") != \"ON\")\n                        {\n                            StateMessage.topic = \"daikin/switch/led/\" + unitname + \"/state\"\n                            StateMessage.payload = \"ON\"\n                            node.send(StateMessage);\n                        }\n                }\n        } // End of skipread\n        \n        //INDOOR TEMPERATURE\n        let indoortemp = msg.payload[i].managementPoints.climateControl.sensoryData[\"/roomTemperature\"].value\n        \n        if ((flow.get(\"daikin/sensor/indoor_temp/\"+unitname+\"/state\") != indoortemp) || (currentminutes == 30)) //|| ((currentminutes % 5 === 0)\n                {\n                    StateMessage.topic = \"daikin/sensor/indoor_temp/\" + unitname + \"/state\"\n                    StateMessage.payload = indoortemp\n                    node.send(StateMessage);\n                }  \n                \n        //OUTDOOR TEMPERATURE\n        let outdoortemp = msg.payload[i].managementPoints.climateControl.sensoryData[\"/outdoorTemperature\"].value\n        \n        if ((flow.get(\"daikin/sensor/outdoor_temp/\"+unitname+\"/state\") != outdoortemp) || (currentminutes == 30)) //|| ((currentminutes % 5 === 0) \n                {\n                    StateMessage.topic = \"daikin/sensor/outdoor_temp/\" + unitname + \"/state\"\n                    StateMessage.payload = outdoortemp\n                    node.send(StateMessage);\n                }\n\n    }\n\nif (flow.get(\"SkipRead\") > 0)\n{\nflow.set(\"SkipRead\", (flow.get(\"SkipRead\") - 1))\n}\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 420,
+        "wires": [
+            [
+                "fb0819061dac9a48"
+            ]
+        ]
+    },
+    {
+        "id": "04be43bdb7384602",
+        "type": "link out",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "af4b2817b22db067"
+        ],
+        "x": 1235,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "af4b2817b22db067",
+        "type": "link in",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "links": [
+            "04be43bdb7384602"
+        ],
+        "x": 335,
+        "y": 360,
+        "wires": [
+            [
+                "1b1333f1f00f981d"
+            ]
+        ]
+    },
+    {
+        "id": "5ff7eb6386c2e166",
+        "type": "rbe",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Pass once",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload.length",
+        "topi": "topic",
+        "x": 790,
+        "y": 360,
+        "wires": [
+            [
+                "6c947aab21954c08"
+            ]
+        ]
+    },
+    {
+        "id": "93e07b6a0cbf9e0b",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Read kWh",
+        "func": "if ((flow.get(\"CreatekWhCool\") == true) || (flow.get(\"CreatekWhHeat\") == true) || (flow.get(\"CreatekWhTotal\") == true))\n{\n    const currentminutes = new Date().getMinutes();\n    var StateMessage = {}\n    var kWhData = {}\n    kWhData.payload = \"\"\n    var previouskwhcool\n    var previouskwhheat\n    var firstrun = false\n    var writetofile = false\n    \n    for (let i = 0; i < msg.payload.length; i++)\n    {\n        \n    var CoolKWHarray = []\n    var HeatKWHarray = []\n    var totalkwhcool\n    var totalkwhheat\n    \n    CoolKWHarray = msg.payload[i].managementPoints.climateControl.consumptionData[\"/electrical\"].cooling.d\n    HeatKWHarray = msg.payload[i].managementPoints.climateControl.consumptionData[\"/electrical\"].heating.d\n    \n        var dailykwhcool = CoolKWHarray.reduce(function(a, b){return a + b*10;}, 0);\n        var dailykwhheat = HeatKWHarray.reduce(function(a, b){return a + b*10;}, 0);\n    \n        if (flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhCool\") == undefined) \n        {\n            flow.set(flow.get(\"NameUnit\"+i)+\"TotalkWhCool\", 0)\n            totalkwhcool = 0\n            firstrun = true\n            //First run, set kWh counter to zero.\n            StateMessage.topic = \"daikin/sensor/kwh_cool/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = \"0\"\n            node.send([[StateMessage], null]) \n        }\n        else\n        {\n            totalkwhcool = flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhCool\")\n        }\n        \n        if (flow.get(flow.get(\"NameUnit\"+i)+\"PreviouskWhCool\") == undefined)\n        {previouskwhcool = 0; flow.set(flow.get(\"NameUnit\"+i)+\"PreviouskWhCool\", 0)}\n        else\n        {previouskwhcool = flow.get(flow.get(\"NameUnit\"+i)+\"PreviouskWhCool\")}\n\n        \n        if (flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhHeat\") == undefined) \n        {\n            \n            flow.set(flow.get(\"NameUnit\"+i)+\"TotalkWhHeat\", 0)    \n            totalkwhheat = 0\n            firstrun = true\n            //First run, set kWh counter to zero.\n            StateMessage.topic = \"daikin/sensor/kwh_heat/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = \"0\"\n            node.send([[StateMessage], null]) \n        }\n        else\n        {\n            totalkwhheat = flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhHeat\")\n        }\n        \n        if (flow.get(flow.get(\"NameUnit\"+i)+\"PreviouskWhHeat\") == undefined)\n        {previouskwhheat = 0; flow.set(flow.get(\"NameUnit\"+i)+\"PreviouskWhHeat\", 0)}\n        else\n        {previouskwhheat = flow.get(flow.get(\"NameUnit\"+i)+\"PreviouskWhHeat\")}\n    \n        //Previous can only be bigger if a new day started (so values of previous were deleted from the daikin array)\n        if ((previouskwhcool) > (dailykwhcool)) {previouskwhcool = dailykwhcool; flow.set(flow.get(\"NameUnit\"+i)+\"PreviouskWhCool\", previouskwhcool); writetofile = true}\n        if ((previouskwhheat) > (dailykwhheat)) {previouskwhheat = dailykwhheat; flow.set(flow.get(\"NameUnit\"+i)+\"PreviouskWhHeat\", previouskwhheat); writetofile = true}\n    \n        //Send Updated kWh to domoticz\n        //Cool\n        if ((totalkwhcool + dailykwhcool) > (previouskwhcool + totalkwhcool))\n            {\n            StateMessage.topic = \"daikin/sensor/kwh_cool/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = ((totalkwhcool + (dailykwhcool - previouskwhcool))/10).toFixed(1)\n            if (flow.get(\"CreatekWhCool\") == true) {node.send([[StateMessage], null])}\n            totalkwhcool = (totalkwhcool + (dailykwhcool - previouskwhcool))\n            previouskwhcool= dailykwhcool\n            flow.set(flow.get(\"NameUnit\"+i)+\"PreviouskWhCool\", previouskwhcool)\n            flow.set(flow.get(\"NameUnit\"+i)+\"TotalkWhCool\", totalkwhcool)\n            writetofile = true\n            }\n        //Heat   \n        if ((totalkwhheat + dailykwhheat) > (previouskwhheat + totalkwhheat))\n            {\n            StateMessage.topic = \"daikin/sensor/kwh_heat/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = ((totalkwhheat + (dailykwhheat - previouskwhheat))/10).toFixed(1)\n            if (flow.get(\"CreatekWhHeat\") == true) {node.send([[StateMessage], null])} \n            totalkwhheat = (totalkwhheat + (dailykwhheat - previouskwhheat))\n            previouskwhheat = dailykwhheat\n            flow.set(flow.get(\"NameUnit\"+i)+\"PreviouskWhHeat\", previouskwhheat)\n            flow.set(flow.get(\"NameUnit\"+i)+\"TotalkWhHeat\", totalkwhheat)\n            writetofile = true\n            }\n        //Total    \n        if ((totalkwhcool + dailykwhcool + totalkwhheat + dailykwhheat) > (previouskwhcool + totalkwhcool + previouskwhheat + totalkwhheat))\n            {\n            StateMessage.topic = \"daikin/sensor/kwh_total/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = (((totalkwhcool + (dailykwhcool - previouskwhcool)) + (totalkwhheat + (dailykwhheat - previouskwhheat)))/10).toFixed(1)\n            if (flow.get(\"CreatekWhTotal\") == true) {node.send([[StateMessage], null])} \n            }\n\n        //Send current kWh to domoticz (avoid sensor timeout)\n        if ((currentminutes == 30) && (writetofile == false))\n        {\n            //Cool\n            StateMessage.topic = \"daikin/sensor/kwh_cool/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = (flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhCool\")/10).toFixed(1) \n            if (flow.get(\"CreatekWhCool\") == true) {node.send([[StateMessage], null])}\n            //Heat\n            StateMessage.topic = \"daikin/sensor/kwh_heat/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = (flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhHeat\")/10).toFixed(1) \n            if (flow.get(\"CreatekWhHeat\") == true) {node.send([[StateMessage], null])}      \n            //Total\n            StateMessage.topic = \"daikin/sensor/kwh_total/\" + flow.get(\"NameUnit\"+i) + \"/state\"\n            StateMessage.payload = ((flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhCool\")/10) + (flow.get(flow.get(\"NameUnit\"+i)+\"TotalkWhHeat\")/10)).toFixed(1) \n            if (flow.get(\"CreatekWhTotal\") == true) {node.send([[StateMessage], null])}                 \n        }\n    \n            kWhData.payload= '\"'+ flow.get(\"NameUnit\"+i) + 'TotalkWhCool\":\"' + totalkwhcool.toFixed(1) +'\", \"' + flow.get(\"NameUnit\"+i) + 'TotalkWhHeat\":\"' + totalkwhheat.toFixed(1) +'\", \"' + flow.get(\"NameUnit\"+i) + 'PreviouskWhCool\":\"' + previouskwhcool.toFixed(1) +'\", \"' + flow.get(\"NameUnit\"+i) + 'PreviouskWhHeat\":\"' + previouskwhheat.toFixed(1) +'\"'\n                if (kWhData.string == undefined)\n                    {\n                        kWhData.string = \"{\" + kWhData.payload  \n                    }\n                else\n                    {\n                        kWhData.string = kWhData.string  + \", \" + kWhData.payload \n                    }\n    }\n    \n    kWhData.string = kWhData.string + \"}\"\n    kWhData.payload = kWhData.string\n    if (writetofile == true)\n    {\n        node.send([null, [kWhData]])\n    }\n    \n}   \n    return null;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 500,
+        "wires": [
+            [
+                "fb0819061dac9a48"
+            ],
+            [
+                "5491c5331ef0db4e"
+            ]
+        ]
+    },
+    {
+        "id": "60e2f4ef4737cb7c",
+        "type": "file",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1120,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a07e52fc7e0fd6e",
+        "type": "file in",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 560,
+        "y": 220,
+        "wires": [
+            [
+                "e2d3b86566515530"
+            ]
+        ]
+    },
+    {
+        "id": "51447b07a02a9f39",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Read kwhData File on Start",
+        "func": "msg.payload.keys = Object.keys(msg.payload)\nmsg.payload.values = Object.values(msg.payload)\n\nfor (let i = 0; i < msg.payload.keys.length; i++)\n{\n    flow.set(msg.payload.keys[i], Number(msg.payload.values[i]))\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2d3b86566515530",
+        "type": "json",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "51447b07a02a9f39"
+            ]
+        ]
+    },
+    {
+        "id": "8212dfe1a2221478",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set File Location",
+        "func": "msg.filename = flow.get(\"ConfigurationFilePath\")+\"MQTTADSettings\"\nnode.send([[msg], null, null])\n\nmsg.filename = flow.get(\"ConfigurationFilePath\")+\"DomoticzSettings\"\nnode.send([null, [msg], null])\n\nmsg.filename = flow.get(\"ConfigurationFilePath\")+\"kwhData\"\nnode.send([null, null, [msg]])\n\nreturn null;",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "b0aff63096645ac2"
+            ],
+            [
+                "26ce01afe0babef8"
+            ],
+            [
+                "7a07e52fc7e0fd6e"
+            ]
+        ]
+    },
+    {
+        "id": "a5ec7643afb5928a",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set File Location",
+        "func": "msg.filename = flow.get(\"ConfigurationFilePath\")+\"MQTTADSettings\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 60,
+        "wires": [
+            [
+                "06aec73cb0b676ab"
+            ]
+        ]
+    },
+    {
+        "id": "f21dcc60b22975ad",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set File Location",
+        "func": "msg.filename = flow.get(\"ConfigurationFilePath\")+\"DomoticzSettings\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 140,
+        "wires": [
+            [
+                "f9b3232c48ec7188"
+            ]
+        ]
+    },
+    {
+        "id": "5491c5331ef0db4e",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set File Location",
+        "func": "msg.filename = flow.get(\"ConfigurationFilePath\")+\"kwhData\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 540,
+        "wires": [
+            [
+                "60e2f4ef4737cb7c"
+            ]
+        ]
+    },
+    {
+        "id": "bae0a50d923f4070",
+        "type": "comment",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Step1: Configuration File",
+        "info": "Set the location of the configuration files in the Configuration File node. \n\nFor example /home/pi/Daikinconfig/\n\nDon't forget the / at the end and beginning.\nThe files are used to store your dashboard settings, and to store kwh data in case you have to restart node red.\n\nNow deploy the flow in nodered.",
+        "x": 150,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "712b9779176aa8f5",
+        "type": "change",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Configuration File",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ConfigurationFilePath",
+                "pt": "flow",
+                "to": "/home/pi/DaikinConfig/",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "8212dfe1a2221478"
+            ]
+        ],
+        "info": "Choose a place where the configuration files and the ...."
+    },
+    {
+        "id": "3d3e606e9cf7e139",
+        "type": "switch",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Start Flow",
+        "property": "StartFlow",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 220,
+        "y": 360,
+        "wires": [
+            [
+                "4c67bcf40c159646",
+                "1b1333f1f00f981d"
+            ]
+        ]
+    },
+    {
+        "id": "4c67bcf40c159646",
+        "type": "rbe",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Pass once",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "topic",
+        "topi": "topic",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "e0eda8a3d289d030"
+            ]
+        ]
+    },
+    {
+        "id": "0dc3eb2935ae9b37",
+        "type": "change",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 60,
+        "wires": [
+            [
+                "ce325a7cdf5cfd18"
+            ]
+        ]
+    },
+    {
+        "id": "1e672b1d07b5f29b",
+        "type": "change",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 140,
+        "wires": [
+            [
+                "79fdd12f2d8a54a1"
+            ]
+        ]
+    },
+    {
+        "id": "6c947aab21954c08",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Set UnitData",
+        "func": "if (flow.get(\"UnitCount\") == undefined)\n{\n    for (let i = 0; i < msg.payload.length; i++)\n    {\n        flow.set(\"UnitCount\", msg.payload.length)\n        flow.set(\"CurrentModeUnit\"+i, msg.payload[i].managementPoints.climateControl.operationMode.value )\n        flow.set(\"SSIDUnit\"+i,msg.payload[i].managementPoints.gateway.ssid.value)\n        //flow.set(\"NameUnit\"+i,msg.payload[i].managementPoints.climateControl.name.value)\n        //Fix for spaces in unit name\n        flow.set(\"NameUnit\" + i, msg.payload[i].managementPoints.climateControl.name.value.split(' ').join('_'))\n        flow.set(\"IDUnit\"+i,msg.payload[i].desc._id)    \n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 360,
+        "wires": [
+            [
+                "797fd7f2d05498c3"
+            ]
+        ]
+    },
+    {
+        "id": "d5ef248c5c73a795",
+        "type": "delay",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 460,
+        "wires": [
+            [
+                "d3bb7b1fd84408e6",
+                "93e07b6a0cbf9e0b"
+            ]
+        ]
+    },
+    {
+        "id": "23db72d6edfeba77",
+        "type": "delay",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 460,
+        "wires": [
+            [
+                "d5ef248c5c73a795"
+            ]
+        ]
+    },
+    {
+        "id": "797fd7f2d05498c3",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Create Devices",
+        "func": "var switchmsg = {}\nfor (let i = 0; i < msg.payload.length; i++)\n    {\n        var ssid = msg.payload[i].managementPoints.gateway.ssid.value\n        var name = msg.payload[i].managementPoints.climateControl.name.value\n        var id = msg.payload[i].desc._id\n        switchmsg.retain = true\n    \n        //Power ON/OFF\n        if (flow.get(\"CreatePower\") == true) \n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/switch/power/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Power\", \"command_topic\": \"' + flow.get(\"StateSetPrefix\") + '/switch/power/' + name + '/set\", \"state_topic\": \"' + flow.get(\"StateSetPrefix\") + '/switch/power/' + name + '/state\", \"unique_id\": \"'+ id + '_power\"}'\n            node.send(switchmsg);\n        }\n        \n        //Setpoint  \n        if (flow.get(\"CreateSetpoint\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/climate/setpoint/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Setpoint\", \"temperature_command_topic\":\"' + flow.get(\"StateSetPrefix\") + '/climate/setpoint/' + name + '/targetTempCmd\", \"temperature_state_topic\":\"' + flow.get(\"StateSetPrefix\") + '/climate/setpoint/' + name + '/state\",\"unique_id\": \"'+ id + '_setpoint\"}'\n            node.send(switchmsg);\n        }\n        \n        //Mode\n        if (flow.get(\"CreateMode\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/select/mode/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Mode\", \"command_topic\": \"' + flow.get(\"StateSetPrefix\") + '/select/mode/' + name + '/set\", \"state_topic\": \"' + flow.get(\"StateSetPrefix\") + '/select/mode/' + name + '/state\", \"options\": [\"off\", \"auto\", \"cooling\", \"heating\", \"fanOnly\", \"dry\"] , \"unique_id\": \"'+ id + '_mode\"}'\n            node.send(switchmsg);\n        }\n        \n        //FanDirection\n        if (flow.get(\"CreateFanDirection\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/select/fandirection/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Fan Direction\", \"command_topic\": \"' + flow.get(\"StateSetPrefix\") + '/select/fandirection/' + name + '/set\", \"state_topic\": \"' + flow.get(\"StateSetPrefix\") + '/select/fandirection/' + name + '/state\", \"options\": [\"Off\", \"Horizontal\", \"Vertical\", \"3D-Swing\"] , \"unique_id\": \"'+ id + '_fandirection\"}'\n            node.send(switchmsg);\n        }\n        \n        //FanSpeed\n        if (flow.get(\"CreateFanSpeed\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/select/fanspeed/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Fan Speed\", \"command_topic\": \"' + flow.get(\"StateSetPrefix\") + '/select/fanspeed/' + name + '/set\", \"state_topic\": \"' + flow.get(\"StateSetPrefix\") + '/select/fanspeed/' + name + '/state\", \"options\": [\"Off\", \"Level 1\", \"Level 2\", \"Level 3\", \"Level 4\", \"Level 5\", \"Auto\", \"Quiet\"] , \"unique_id\": \"'+ id + '_fanspeed\"}'\n            node.send(switchmsg);\n        }\n        \n        //Powerful\n        if (flow.get(\"CreatePowerful\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/switch/powerful/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Powerful\", \"command_topic\": \"' + flow.get(\"StateSetPrefix\") + '/switch/powerful/' + name + '/set\", \"state_topic\": \"' + flow.get(\"StateSetPrefix\") + '/switch/powerful/' + name + '/state\", \"unique_id\": \"'+ id + '_powerful\"}'\n            node.send(switchmsg);\n        }\n        \n        //Econo\n        if (flow.get(\"CreateEcono\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/switch/econo/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Econo\", \"command_topic\": \"' + flow.get(\"StateSetPrefix\") + '/switch/econo/' + name + '/set\", \"state_topic\": \"' + flow.get(\"StateSetPrefix\") + '/switch/econo/' + name + '/state\", \"unique_id\": \"'+ id + '_econo\"}'\n            node.send(switchmsg);\n        } \n        \n        //LED\n        if (flow.get(\"CreateLed\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/switch/led/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Led\", \"command_topic\": \"daikin/switch/led/' + name + '/set\", \"state_topic\": \"daikin/switch/led/' + name + '/state\", \"unique_id\": \"'+ id + '_led\"}'\n            node.send(switchmsg);\n        }\n        \n        //Indoor Temperature\n        if (flow.get(\"CreateIndoorTemperature\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/sensor/indoor_temp/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Indoor Temp\", \"device_class\": \"temperature\", \"state_topic\":\"' + flow.get(\"StateSetPrefix\") + '/sensor/indoor_temp/' + name + '/state\",\"unit_of_measurement\": \"°C\", \"value_template\": \"{{ value_json.temperature}}\", \"unique_id\": \"'+ id + '_indoor_temp\"}'\n            node.send(switchmsg);\n        }\n        \n        //Outdoor Temperature\n        if (flow.get(\"CreateOutdoorTemperature\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/sensor/outdoor_temp/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' Outdoor Temp\", \"device_class\": \"temperature\", \"state_topic\":\"' + flow.get(\"StateSetPrefix\") + '/sensor/outdoor_temp/' + name + '/state\",\"unit_of_measurement\": \"°C\", \"value_template\": \"{{ value_json.temperature}}\", \"unique_id\": \"'+ id + '_outdoor_temp\"}'\n            node.send(switchmsg);\n        }\n        \n        //KWH COOL\n        if (flow.get(\"CreatekWhCool\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/sensor/kwh_cool/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' kWh Cool\", \"device_class\": \"total\", \"state_topic\":\"' + flow.get(\"StateSetPrefix\") + '/sensor/kwh_cool/' + name + '/state\",\"unit_of_measurement\": \"kwh\", \"unique_id\": \"'+ id + '_kwh_cool\"}'\n            node.send(switchmsg);\n        }\n        \n        //KWH HEAT\n        if (flow.get(\"CreatekWhHeat\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/sensor/kwh_heat/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' kWh Heat\", \"device_class\": \"total\", \"state_topic\":\"' + flow.get(\"StateSetPrefix\") + '/sensor/kwh_heat/' + name + '/state\",\"unit_of_measurement\": \"kwh\", \"unique_id\": \"'+ id + '_kwh_heat\"}'\n            node.send(switchmsg);\n        }\n    \n        //KWH TOTAL\n        if (flow.get(\"CreatekWhTotal\") == true)\n        {\n            //switchmsg.retain = true\n            switchmsg.topic = flow.get(\"AutoDiscoveryPrefix\") + '/sensor/kwh_total/' + name + '/config'\n            switchmsg.payload = '{\"name\": \"Daikin ' + name + ' kWh Total\", \"device_class\": \"total\", \"state_topic\":\"' + flow.get(\"StateSetPrefix\") + '/sensor/kwh_total/' + name + '/state\",\"unit_of_measurement\": \"kwh\", \"unique_id\": \"'+ id + '_kwh_total\"}'\n            node.send(switchmsg);\n        }\n        \n    }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 360,
+        "wires": [
+            [
+                "fb0819061dac9a48"
+            ]
+        ]
+    },
+    {
+        "id": "545311eec9d6a0b6",
+        "type": "comment",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Step 3: Enable flow",
+        "info": "Go back to the dashboard (CTRL+SHIFT+D) and enable start flow and save settings.",
+        "x": 650,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "886993245976a21b",
+        "type": "catch",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "scope": [
+            "b0aff63096645ac2",
+            "26ce01afe0babef8",
+            "ed7e3ed0d0411953",
+            "7a07e52fc7e0fd6e"
+        ],
+        "uncaught": false,
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "b214611f83bf3afe"
+            ]
+        ]
+    },
+    {
+        "id": "b214611f83bf3afe",
+        "type": "function",
+        "z": "6d2f931c87bbb1a0",
+        "name": "function 1",
+        "func": "var str = msg.error.message\nmsg.filename = str.split(\"'\")[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "d0df01c30e16d3f0"
+            ]
+        ]
+    },
+    {
+        "id": "d0df01c30e16d3f0",
+        "type": "file",
+        "z": "6d2f931c87bbb1a0",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b3d7c5990d060cf",
+        "type": "ui_form",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Dashboard",
+        "label": "",
+        "group": "a06bad650164a668",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Create Power Devices",
+                "value": "CreatePower",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Setpoint Devices",
+                "value": "CreateSetpoint",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Mode Devices",
+                "value": "CreateMode",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Fan Direction Devices",
+                "value": "CreateFanDirection",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Fan Speed Devices",
+                "value": "CreateFanSpeed",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Powerful Devices",
+                "value": "CreatePowerful",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Econo Devices",
+                "value": "CreateEcono",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Led Devices",
+                "value": "CreateLed",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Indoor Temperature Devices",
+                "value": "CreateIndoorTemperature",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create Outdoor Temperature Devices",
+                "value": "CreateOutdoorTemperature",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create kWh Heat Devices",
+                "value": "CreatekWhHeat",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create kWh Cool Devices",
+                "value": "CreatekWhCool",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Create kWh Total Devices",
+                "value": "CreatekWhTotal",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "CreatePower": false,
+            "CreateSetpoint": false,
+            "CreateMode": false,
+            "CreateFanDirection": false,
+            "CreateFanSpeed": false,
+            "CreatePowerful": false,
+            "CreateEcono": false,
+            "CreateLed": false,
+            "CreateIndoorTemperature": false,
+            "CreateOutdoorTemperature": false,
+            "CreatekWhHeat": false,
+            "CreatekWhCool": false,
+            "CreatekWhTotal": false
+        },
+        "payload": "",
+        "submit": "Save Settings",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": true,
+        "className": "",
+        "x": 1210,
+        "y": 60,
+        "wires": [
+            [
+                "c0bbb74d7e77274d",
+                "a5ec7643afb5928a"
+            ]
+        ]
+    },
+    {
+        "id": "b59cf1777bd867f4",
+        "type": "ui_form",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Dashboard",
+        "label": "",
+        "group": "43745523810d126b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "MQTT Broker IP",
+                "value": "MQTTBrokerIP",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "MQTT Broker Port",
+                "value": "MQTTBrokerPort",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "MQTT Broker Username",
+                "value": "MQTTBrokerUsername",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "MQTT Broker Password",
+                "value": "MQTTBrokerPassword",
+                "type": "password",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Auto Discovery Prefix",
+                "value": "AutoDiscoveryPrefix",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "State Set Prefix",
+                "value": "StateSetPrefix",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Start Flow",
+                "value": "StartFlow",
+                "type": "checkbox",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "MQTTBrokerIP": "",
+            "MQTTBrokerPort": "",
+            "MQTTBrokerUsername": "",
+            "MQTTBrokerPassword": "",
+            "AutoDiscoveryPrefix": "",
+            "StateSetPrefix": "",
+            "StartFlow": false
+        },
+        "payload": "",
+        "submit": "Save Settings",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 1210,
+        "y": 140,
+        "wires": [
+            [
+                "58eb59d2a125eb49",
+                "f21dcc60b22975ad"
+            ]
+        ]
+    },
+    {
+        "id": "1b1333f1f00f981d",
+        "type": "Daikin-Cloud-Controller",
+        "z": "6d2f931c87bbb1a0",
+        "name": "Daikin Cloud",
+        "loglevel": "warn",
+        "tokensave": "0",
+        "timeout": "10000",
+        "retry": "3",
+        "x": 450,
+        "y": 360,
+        "wires": [
+            [
+                "23db72d6edfeba77",
+                "5ff7eb6386c2e166"
+            ]
+        ]
+    }
+]
